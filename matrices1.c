@@ -1,3 +1,6 @@
+/*Programa matrices1.c
+De la universidad: Realizar matrices*/
+
 #include <stdio.h>
 
 void matrizcoe(int t,int a[][10], int b[][10]){
