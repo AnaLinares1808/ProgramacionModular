@@ -17,10 +17,10 @@ int main()
 {
 int fact;
 int n;
-printf("\n Dame un numero: ");
+printf("\n Escribe un numero: ");
 
 scanf("%d", &n);
 fact=factorial(n);
-printf("\n El factorial=%d \n", fact);
+printf("\n El factorial del numero es: %d \n", fact);
 return 0;
 }
