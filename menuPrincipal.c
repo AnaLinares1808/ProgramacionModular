@@ -44,7 +44,7 @@ int opc; //El opc es el que se decarara mas adelante para poder elegir el progra
  
     printf("Bienvenido al programa Conversion de Temperaturas, por favor escribe el número de la opción que corresponda:"); //Leera el valor correspondiente
     printf("\n");
-    printf("\n1. Conversion Celsius a Farenheit\n2. Conversion Farenheit a Celsius\n3. Conversion Celsius a Kelvin\n:");scanf("%i",&opc);
+    printf("\n1. Conversion Celsius a Farenheit\n2. Conversion Farenheit a Celsius\n3. Conversion Celsius a Kelvin\n:");scanf("%i",&opc); //Se define un case para la eleccion del usuario
 
     switch(opc) //Seleccionara la opcion a escoger
     { 
@@ -119,7 +119,7 @@ void areaTrapecio()
 }	
 	
 	printf("Bienvenido al programa Figuras Cuadraticas, por favor escribe el número de la opción que quieras:\n"); //Leera el valor correspondiente
-	printf("\n1. Area de un cuadrado\n2. Perimetro de un cuadrado\n3. Area de un rectanulo\n4. Area de un trapecio\n:");
+	printf("\n1. Area de un cuadrado\n2. Perimetro de un cuadrado\n3. Area de un rectanulo\n4. Area de un trapecio\n:"); //Se define un case para la eleccion del usuario
 	scanf("%i",&opc);
 
         switch(opc)
@@ -182,9 +182,9 @@ void matrices1(){ //Es el void que encierra a todo el programa para el case del 
 		}
 	}
 	void sumaMatriz(int mC,int a[][10], int b[][10], int c[][10]){
-		for (int i=0; i<mC; i++){
-			for (int j=0; j<mC; j++){
-				c[i][j] = a[i][j] + b[i][j];
+		for (int i=0; i<mC; i++){ //Se define un ciclo for para la iteracion de las filas
+			for (int j=0; j<mC; j++){ //Se define un ciclo for para la iteracion de las columnas
+				c[i][j] = a[i][j] + b[i][j]; //Se realiza una suma de columnas
 			}
 		}
 	}
@@ -195,7 +195,7 @@ void matrices1(){ //Es el void que encierra a todo el programa para el case del 
         sumaMatriz(mC, a, b, c);
         for(int i=0; i<mC; i++){
                 for(int j=0; j<mC; j++){
-                        printf ("%i\t", c[i][j]);
+                        printf ("%i\t", c[i][j]); //Muestra el resultado de la suma de columnas
                 }
                 printf("\n");
         }
@@ -204,29 +204,27 @@ void matrices1(){ //Es el void que encierra a todo el programa para el case del 
 /* Programa matrices2
 para que funcione debe tener el mismo tamaño de columnas,
 de lo contrario fallara*/
-
-void matrices2(){ //Es el void que encierra a todo el programa para el case del menu principal
-	int opc; //El opc es el que se decarara mas adelante para poder elegir el programa
+		int opc;
 	#define N 10
 	#define M 10 //Se establecen los limites de las coordenadas
 	void leer_matriz(int A[N][M], int F, int C)
 	{
-		int i,j;
-		for(i=0;i<F;i++)
+		int i,j; 
+		for(i=0;i<F;i++) //Se define un ciclo for para la iteracion de las filas
 		{
-			for (j = 0;j<C;j++)
+			for (j = 0;j<C;j++) //Se define un ciclo for para la iteracion de las columnas
 			{
 				printf("Escribe el valor de [%d][%d]\n",i,j );
-				scanf("%d",&A[i][j]);
+				scanf("%d",&A[i][j]); //Escanea los valores correspondientes
 			}
 		}
 	}
 	void imprimir_matriz(int A[N][M],int F,int C)
 	{
 		int i,j;
-		for(i=0;i<F;i++)
+		for(i=0;i<F;i++) //Se define un ciclo for para la iteracion de las filas
 		{
-			for (j = 0; j<C; j++)
+			for (j = 0; j<C; j++) //Se define un ciclo for para la iteracion de las columnas
 			{
 				printf("%d\t",A[i][j]);
 			}
@@ -236,16 +234,16 @@ void matrices2(){ //Es el void que encierra a todo el programa para el case del 
 	void multiplicar(int A[N][M],int B[N][M],int Re[N][M],int f1,int cf,int c2)
 	{
 		int i,j,k; //Limpiar matriz para que al momento de hacer la operación no tenga basura que pueda interferir
-		for(i=0;i<f1;i++)
+		for(i=0;i<f1;i++) //Se define un ciclo for para la iteracion de las filas
 		{
-			for (j = 0; j<c2; j++)
+			for (j = 0; j<c2; j++) //Se define un ciclo for para la iteracion de las columnas
 			{
 				Re[i][j]=0;
 			}
 		}
-		for(i=0;i<f1;i++)
+		for(i=0;i<f1;i++) //Se define un ciclo for para la iteracion de las filas
 		{
-			for (j = 0; j<cf; j++)
+			for (j = 0; j<cf; j++) //Se define un ciclo for para la iteracion de las columnas
 			{
 				for (k = 0; k < c2; k++)
 				{
@@ -254,7 +252,7 @@ void matrices2(){ //Es el void que encierra a todo el programa para el case del 
 			}
 		}
 	}
-	int multiplicacion (int argc, char *argv[])
+	int  multiplicacion ()
 	{
 		int F,C,P, i,j; //Fila, Columna, columna de segunda matriz, posicion i y posicion j
 		int mat1[N][M],mat2[N][M]; //Matriz 1 y matriz 2
@@ -277,22 +275,20 @@ void matrices2(){ //Es el void que encierra a todo el programa para el case del 
         	imprimir_matriz(mat2,C,P);
         	printf("Es resultado de la multiplicación es\n");
         	imprimir_matriz(matR,F,P);
-	}
+return  0;
 }
-
 /*Programa Matrices 3, matriz transpuesta
  Lo que se vio en universidad, realizar una matriz transpuesta cuadrada*/
 
-void matrices3(){ //Es el void que encierra a todo el programa para el case del menu principal
-	int opc; //El opc es el que se decarara mas adelante para poder elegir el programa
 #define MAX 10
-int transpuesta(int argc, char** args)
+int transpuesta()
 {
+	int opc;
         int matriz[MAX][MAX], col, fila, i=0, j=0;
         printf("Escribe cuantas filas quieres: ");
-        scanf("%d", &fila);
+        scanf("%d", &fila); //Escaneara las filas solicitadas
         printf("Escribe cuantas columnas quieres: ");
-        scanf("%d", &col);
+        scanf("%d", &col); //Escaneara las columnas solicitadas
         for(i = 0;i < fila;i++)
         {
                 for(j = 0;j < col;j++) {
@@ -318,8 +314,9 @@ int transpuesta(int argc, char** args)
                 } }
 
 printf("\n\n\n");
+return 0;
 }
-}
+
 
 /* Programa Salario
 Consiste en ingresar cuántas horas trabajas y cuánto ganas la hora,
@@ -387,7 +384,7 @@ void angulo()
 }
 
         printf("Bienvenido al programa Figuras Triangulares, por favor escribe el número de la opción que quieras:\n"); //Leera el valor correspondiente
-        printf("\n1. Calcular la hipotenusa\n2. Calcular el area del triangulo\n3. Calcular el angulo restante de un triangulo\n:");
+        printf("\n1. Calcular la hipotenusa\n2. Calcular el area del triangulo\n3. Calcular el angulo restante de un triangulo\n:"); //Se define un case para la eleccion del usuario
         scanf("%i",&opc);
 
         switch(opc)
@@ -407,20 +404,18 @@ void angulo()
 
 int main(){ //Main principal donde coloco todos los 'case' en función
 
-char opc;
+char opc; //Se define de tipo caracter para la eleccion de cada caso
     
     printf("Bienvenido a Programación Modular, elige un programa a tu eleccion: \n");
     printf("a) Conversion de temperaturas\n");
     printf("b) Figuras cuadraticas\n");
     printf("c) Factoriales\n");
-    printf("d) Suma de matrices\n");
-    printf("e) Multiplicacion de matrices\n");
-    printf("f) Matrices Transpuestas\n");
+    printf("d) Suma de matrices\ne) Multiplicacion de matrices\nf) Matrices Transpuestas\n");
     printf("g) Salario\n");
     printf("h) Figuras triangulares\n");
     scanf("%c",&opc);
     printf("\n:");
-    
+   int x;
     switch (opc){
         
         case 'a':
@@ -434,19 +429,20 @@ char opc;
         break;
 	case 'd':
         matrices1();
-        break;
+	break;
 	case 'e':
-        matrices2();
+	x=multiplicacion();
         break;
 	case 'f':
-        matrices3();
-        break;
+	x=transpuesta();
+	break;
 	case 'g':
         salario();
         break;
 	case 'h':
         triangulo();
         break;
+
         default: printf("Error, por favor intente de nuevo\n");
     }
     return 0;
